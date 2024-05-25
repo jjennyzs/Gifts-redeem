@@ -1,6 +1,9 @@
 body {
-    font-family: monospace;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
     text-align: center;
+    color: #232323;
+    font-smooth: always;
 }
 
 img {
@@ -12,4 +15,12 @@ img {
     align-items: center;
     justify-content: center;
     gap: 2em;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
