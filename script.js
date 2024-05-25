@@ -8,8 +8,6 @@ const links = [
 
 const wrap = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/gift-icon.png';
 
-let openComplete = links.map(() => false);
-
 const root = document.getElementById('presents');
 
 for (let i = 0; i < links.length; i++) {
@@ -24,6 +22,8 @@ for (let i = 0; i < links.length; i++) {
 }
 
 const images = document.querySelectorAll('img');
+
+let openComplete = links.map(() => false);
 
 images.forEach(image => image.addEventListener('click',
     function openPresent(event) {
