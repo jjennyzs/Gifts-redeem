@@ -7,8 +7,9 @@ const links = [
 ]
 
 const wrap = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/gift-icon.png';
-
 const root = document.getElementById('presents');
+
+let openComplete = links.map(() => false);
 
 for (let i = 0; i < links.length; i++) {
     const holder = document.createElement('div');
@@ -19,22 +20,13 @@ for (let i = 0; i < links.length; i++) {
     image.id = i;
     image.alt = 'a present'
     holder.appendChild(image);
-}
-
-const images = document.querySelectorAll('img');
-
-let openComplete = links.map(() => false);
-
-images.forEach(image => image.addEventListener('click',
-    function openPresent(event) {
-        const image = event.target;
-        const id = image.id;
-        image.src = links[id];
+    image.addEventListener('click', function openPresent() {
+        image.src = links[i];
         image.removeEventListener('click', openPresent);
-        openComplete[Number(id)] = true;
+        openComplete[Number(i)] = true;
         if (openComplete.every(item => item)) {
             const title = document.getElementById('title');
             title.innerHTML = 'Enjoy your presents!';
         }
-    }
-));
+    })
+}
